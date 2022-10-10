@@ -25,20 +25,11 @@
     <body>
     <div class="container center-block col-mid-10">
         <h2 class="mx-auto text-center">試合日程・結果</h2>
-        <div id="app">
-            <!--<matches-component></matches-component>-->
-            <example-component></example-component>
-            <!--<hooper-component></hooper-component>-->
-        </div>
-        
-        
-        
-        
         <table class="col-mid-10 center-block mx-auto">
-            <tr class="d-flex align-items-center">
-                <td class="col text-center">ホーム</td>
-                <td class="col text-center" colspan="3">スコア</td>
-                <td class="col text-center">アウェイ</td>
+            <tr class="align-items-center">
+                <td class="col text-center" style="width:100px;border:1px solid #000;">ホーム</td>
+                <td class="col text-center" colspan="3" style="width:100px;border:1px solid #000;">スコア</td>
+                <td class="col text-center" style="width:100px;border:1px solid #000;">アウェイ</td>
             </tr>
             @foreach ($matches as $match)
                 <!--<div>
@@ -63,25 +54,25 @@
                     awayTeam:name:{{ $match['awayTeam']['name'] }}<br>
                     <img src="https://crests.football-data.org/{{ $match['homeTeam']['id'] }}.svg" height="30">
                 </div>-->
-                <tr class="d-flex align-items-center">
-                    <td class="col p-3 text-center"><a href="{{ route('team.detail', ['id' => $match['homeTeam']['id'] ])}}"><img src="https://crests.football-data.org/{{ $match['homeTeam']['id'] }}.svg" width="70px"></a></td>
-                    <td class="col p-3 text-center">{{ $match['score']['fullTime']['homeTeam'] }}</td>
-                    <td class="col p-3 text-center">-</td>
-                    <td class="col p-3 text-center">{{ $match['score']['fullTime']['awayTeam'] }}</td>
-                    <td class="col p-3 text-center"><img src="https://crests.football-data.org/{{ $match['awayTeam']['id'] }}.svg" width="70px"></td>
+                <tr class="align-items-center"style="border:1px solid #000;">
+                    <td class="col p-3 text-center" style="width:100px;">
+                        <a href="{{ route('team.detail', ['id' => $match['homeTeam']['id'] ])}}">
+                            <img src="https://crests.football-data.org/{{ $match['homeTeam']['id'] }}.svg" width="70px">
+                            <br>{{ $match['homeTeam']['name'] }}
+                        </a>
+                    </td>
+                    <td class="col p-3 text-center" style="width:100px;font-size:3em;">{{ $match['score']['fullTime']['homeTeam'] }}</td>
+                    <td class="col p-3 text-center" style="width:100px;">{{ date('Y/m/d G:i', strtotime($match['utcDate'])) }}<br>-</td>
+                    <td class="col p-3 text-center" style="width:100px;font-size:3em;">{{ $match['score']['fullTime']['awayTeam'] }}</td>
+                    <td class="col p-3 text-center" style="width:100px;">
+                        <a href="{{ route('team.detail', ['id' => $match['awayTeam']['id'] ])}}">
+                            <img src="https://crests.football-data.org/{{ $match['awayTeam']['id'] }}.svg" width="70px">
+                            <br>{{ $match['awayTeam']['name'] }}
+                        </a>
+                    </td>
                 </tr>
-                <tr class="d-flex align-items-center border-bottom">
-                    <td class="col p-3 text-center">{{ $match['homeTeam']['name'] }}</td>
-                    <td class="col p-3 text-center"></td>
-                    <td class="col p-3 text-center">{{ $match['season']['startDate'] }}</td>
-                    <td class="col p-3 text-center"></td>
-                    <td class="col p-3 text-center">{{ $match['awayTeam']['name'] }}</td>
-                </tr>
-            
-        
         @endforeach
         </table>
     </div>
-    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

@@ -8,6 +8,9 @@
                     <div class="card-body">
                         I'm an example component.
                     </div>
+                    <ul>
+  	                    <li v-for="user in users">{{ user.name }} ({{ user.email }})</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -16,8 +19,11 @@
 
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
+        name: 'AppChild',
+        computed :{
+  	        users : function(){
+  		        return this.$store.getters.users;
+  	        }
         },
     }
 </script>

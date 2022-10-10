@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Cache;
 use GuzzleHttp\Client;
+use Carbon\Carbon;
 
 class TestapiController extends Controller
 {
@@ -36,7 +37,9 @@ class TestapiController extends Controller
             \log::debug(print_r($matches,true));
             $matches = json_encode($matches);
         }
-        //dd($matches);
+        // dd($matches);
+        // $date = new Carbon('2021-08-14T13:30:00Z');
+        // echo $date->format('Y年m月d日 G:i');
         $matches_decoded = json_decode($matches, true);
         //echo '<pre>' .print_r($matches_decoded,true).'</pre>';
         return view('testapi.index', ['matches' => $matches_decoded]);

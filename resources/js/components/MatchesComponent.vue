@@ -19,26 +19,26 @@
 <script>
     import axios from 'axios'
     export default {
-        // data() {
-        //     return {
-        //         matches:[],
-        //         match2: [
-        //             {id:2},
-        //             {id:3}
-        //         ]
+        data() {
+            return {
+                matches:[],
+                match2: [
+                    {id:2},
+                    {id:3}
+                ]
                 
-        //     }
-        // },
+            }
+        },
         mounted() {
             console.log('Component mounted.11111')
-            //axios.get('/api/matches')
-            // .then(function(response){
-            //     console.log(response.data)
-            //     this.matches = response.data
-            // })
-            // .catch(function(error){
-            //     console.log(error)
-            // })
+            axios.get('/api/matches')
+            .then(function(response){
+                console.log(response.data)
+                this.matches = response.data
+            })
+            .catch(function(error){
+                console.log(error)
+            })
             
         },
         computed: {

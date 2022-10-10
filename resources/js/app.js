@@ -7,7 +7,10 @@
 require('./bootstrap');
 
 // window.Vue = require('vue');
-import Vue from 'vue';
+import Vue from 'vue'
+import Vuex from 'vuex';
+Vue.use(Vuex);
+import store from './index.js'
 
 import axios from 'axios';
 
@@ -25,10 +28,13 @@ Vue.use(VModal);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-// Vue.component('matches-component', require('./components/MatchesComponent.vue').default);
+// Vue.component('child-component', require('./components/ChildComponent.vue').default);
+Vue.component('matches-component', require('./components/MatchesComponent.vue').default);
 // Vue.component('hooper-component', require('./components/HooperComponent.vue').default);
 Vue.component('modal-component', require('./components/ModalComponent.vue').default);
-
+Vue.component('app', require('./components/App.vue').default);
+Vue.component('app-child', require('./components/AppChild.vue').default);
+Vue.component('app-component', require('./components/AppComponent.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -37,56 +43,6 @@ Vue.component('modal-component', require('./components/ModalComponent.vue').defa
 
 const app = new Vue({
     el: '#app',
-    data() {
-        return {
-            // matches: null
-        }
-    },
-    mounted () {
-        // this.getMatches()  
-    },
-    methods: {
-        getMatches () {
-            axios.get('/api/matches')
-            .then (function (response){
-                console.log(response)
-                this.matches = response.body
-            })
-            .catch (function (error){
-                console.log(error)
-            })
-        },
-        
-    },
-    el: '#app',
-  methods: {
-    show : function() {
-      this.$modal.show('hello-world');
-    },
-    hide : function () {
-      this.$modal.hide('hello-world');
-    },
-  },
     
-    
-//     el: '#app2',
-// 　　data: {
-// 　　　　modalVisible: false, // モーダル
-// 　　　　modalBgVisible: false //モーダル背景色（薄黒）
-// 　　},
-// 　　methods: {
-// 　　　　showModal: function(){
-// 　　　　　　this.modalVisible = true
-// 　　　　　　this.modalBgVisible = true
-//     },
-//     closeModal: function(){
-//       this.modalVisible = false
-//       this.modalBgVisible = false
-//     },
-//     cancelEvent: function(){ 
-//      event.stopPropagation() 
-//     }
-//   },
-  
-  
+    store,
 });

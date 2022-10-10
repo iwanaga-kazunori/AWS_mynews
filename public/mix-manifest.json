@@ -1,5 +1,9 @@
 {
     "/js/app.js": "/js/app.js",
+    "/js/vuetest.js": "/js/vuetest.js",
+    "/js/main.js": "/js/main.js",
+    "/js/store.js": "/js/store.js",
+    "/js/index.js": "/js/index.js",
     "/css/app.css": "/css/app.css",
     "/css/front.css": "/css/front.css",
     "/css/profile.css": "/css/profile.css",

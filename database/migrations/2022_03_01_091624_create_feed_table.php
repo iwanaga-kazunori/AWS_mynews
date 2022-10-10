@@ -13,10 +13,10 @@ class CreateFeedTable extends Migration
      */
     public function up()
     {
-        Schema::create('feed', function (Blueprint $table) {
+        Schema::create('feeds', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title'); // ニュースのタイトルを保存するカラム
-            $table->string('link'); // ニュースのリンクを保存するカラム
+            $table->string('link')->unique(); // ニュースのリンクを保存するカラム
             $table->string('date'); // ニュースの日付を保存するカラム
             $table->string('category'); // ニュースのカテゴリー（チーム名）を保存するカラム
             $table->string('newsId'); // ニュースのID（リンクURLより設定）を保存するカラム
@@ -33,6 +33,6 @@ class CreateFeedTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('feed');
+        Schema::dropIfExists('feeds');
     }
 }

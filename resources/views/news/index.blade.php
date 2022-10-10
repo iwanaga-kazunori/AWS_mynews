@@ -56,25 +56,43 @@
         </div>
     <div id="app">
             <!--<matches-component></matches-component>-->
-            <!--<example-component></example-component>-->
-            <modal-component></modal-component>
+            <example-component></example-component>
+            <!--<modal-component></modal-component>-->
             <!--<hooper-component></hooper-component>-->
-            <!-- ① モーダル表示ボタン -->
-            <!--<button v-on:click="showModal" class="p-btn">モーダル表示ボタン</button>-->
+            <!--① モーダル表示ボタン -->
+            <button v-on:click="showModal" class="p-btn">モーダル表示ボタン</button>
 
-            <!-- ② モーダル -->
-            <!--<div v-if="modalVisible" class="l-modal" v-on:click="closeModal">-->
-            <!--    <div v-on:click="cancelEvent" class="p-modal">-->
-            <!--        <h2 class="p-modal__title">Vueモーダル</h2> -->
-            <!--        <p> Hello World!</p> -->
+            <!--② モーダル -->
+            <div v-if="modalVisible" class="l-modal" v-on:click="closeModal">
+                <div v-on:click="cancelEvent" class="p-modal">
+                    <h2 class="p-modal__title">Vueモーダル</h2> 
+                    <p> Hello World!111</p> 
 
-                    <!-- モーダルを閉じるボタン -->
-            <!--        <div v-on:click="closeModal" class="p-modal__btn--close">×</div>-->
-            <!--    </div> -->
-            <!--</div> -->
+                    <!--モーダルを閉じるボタン -->
+                    <div v-on:click="closeModal" class="p-modal__btn--close">×</div>
+                </div> 
+            </div> 
 
-            <!-- ③ モーダル表示時の背景色（薄い黒） -->
-            <!--<div v-if="modalBgVisible" class="l-modal__bg"></div>-->
+            <!--③ モーダル表示時の背景色（薄い黒） -->
+            <div v-if="modalBgVisible" class="l-modal__bg"></div>
+            
+            
+            <!--① モーダル表示ボタン -->
+            <button v-on:click="showModal" class="p-btn">モーダル表示ボタン</button>
+
+            <!--② モーダル -->
+            <div v-if="modalVisible" class="l-modal" v-on:click="closeModal">
+                <div v-on:click="cancelEvent" class="p-modal">
+                    <h2 class="p-modal__title">Vueモーダル</h2> 
+                    <p> Hello World!222</p> 
+
+                    <!--モーダルを閉じるボタン -->
+                    <div v-on:click="closeModal" class="p-modal__btn--close">×</div>
+                </div> 
+            </div> 
+
+            <!--③ モーダル表示時の背景色（薄い黒） -->
+            <div v-if="modalBgVisible" class="l-modal__bg"></div>
 
   
 @endsection
